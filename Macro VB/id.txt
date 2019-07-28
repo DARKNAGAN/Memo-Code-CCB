@@ -1,0 +1,40 @@
+ public override void ItemAdded(SPItemEventProperties properties)
+        {
+            SPWeb web = properties.OpenWeb();
+            bool allowUpdates = web.AllowUnsafeUpdates; //store original value
+            this.EventFiringEnabled = false;
+ 
+            try
+            {
+                web.AllowUnsafeUpdates = true;
+                /*get the current list*/
+                SPList list = web.Lists[properties.ListId];
+                var highestvalue = 0;
+                var objQuery = new SPQuery
+                                   {
+                                       Query ="<OrderBy><FieldRef Name='" + ColumnName 
+                                       +"' Ascending='False' /></OrderBy><RowLimit>1</RowLimit>",
+                                       Folder = list.RootFolder
+                                   };
+ 
+                SPListItemCollection colItems = list.GetItems(objQuery);
+                if (colItems.Count > 0)
+                {
+                    highestvalue = int.Parse(colItems[0][ColumnName].ToString());
+                }
+ 
+                var currItem = properties.ListItem;
+                currItem[ColumnName] = highestvalue + 1;
+                currItem.SystemUpdate(false);
+                 
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex.Message);
+            }
+            finally
+            {
+                this.EventFiringEnabled = true;
+                web.AllowUnsafeUpdates = allowUpdates; //restore original value
+            }
+        }

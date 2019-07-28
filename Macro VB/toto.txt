@@ -1,0 +1,1 @@
+=DECALER(Base!$A$1;;;NBVAL(Base!$A:$A);NBVAL(Base!$1:$1))

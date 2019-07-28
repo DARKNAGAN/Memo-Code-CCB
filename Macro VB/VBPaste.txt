@@ -1,0 +1,106 @@
+Sub Macro1()
+'
+' Macro1 Macro
+'
+
+'
+    Sheets("Feuil1").Select
+    Range("F1").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.Copy
+    Sheets("Feuil2").Select
+    
+    Range("B1").Select
+    Selection.End(xlDown).Select
+    ActiveCell.Offset(1, 0).Range("A1").Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Feuil1").Select
+    Range("G1").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("Feuil2").Select
+    
+    Range("C1").Select
+    Selection.End(xlDown).Select
+    ActiveCell.Offset(1, 0).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+
+    
+     Sheets("Feuil1").Select
+    Columns("D:D").Select
+    Application.CutCopyMode = False
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+    Range("D1").Select
+    ActiveCell.FormulaR1C1 = "=RC[-2]+RC[-1]"
+    Range("D1").Select
+    Selection.Copy
+    ActiveCell.Offset(0, -1).Range("A1").Select
+    
+
+
+    
+   Selection.End(xlDown).Select
+    
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Range(Selection, Selection.End(xlUp)).Select
+    ActiveSheet.Paste
+
+    Range("D1").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Application.CutCopyMode = False
+    Selection.Copy
+   
+    Sheets("Feuil2").Select
+     
+    Range("D1").Select
+    Selection.End(xlDown).Select
+    ActiveCell.Offset(1, 0).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+        
+         
+         
+         
+         
+         Sheets("Feuil1").Select
+    Columns("D:D").Select
+    Selection.Delete Shift:=xlToLeft
+    Range("E7").Select
+    
+     
+     Columns("E:E").Select
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+    Range("E1").Select
+    ActiveCell.FormulaR1C1 = "=RC[-3]+RC[-1]"
+    Range("E1").Select
+    Selection.Copy
+    ActiveCell.Offset(0, -1).Range("A1").Select
+    Selection.End(xlDown).Select
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Range(Selection, Selection.End(xlUp)).Select
+    ActiveSheet.Paste
+    Range("E1").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("Feuil2").Select
+    ActiveWindow.SmallScroll Down:=-63
+    Range("F1").Select
+    Selection.End(xlDown).Select
+    ActiveCell.Offset(1, 0).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Feuil1").Select
+    Columns("E:E").Select
+    Application.CutCopyMode = False
+    Selection.Delete Shift:=xlToLeft
+    Range("A1").Select
+     
+       
+    
+        
+End Sub
+ 

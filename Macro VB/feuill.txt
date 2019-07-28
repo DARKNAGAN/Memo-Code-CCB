@@ -1,0 +1,4 @@
+Sub AjouterPlacerEtNommerUneFeuille()
+    'ajouter une nouvelle Feuille à la fin du Classeur et la nommer
+    Sheets.Add(After:=Worksheets(Worksheets.Count)).Name = "Nouvelle_Dernière_Feuille"
+End Sub

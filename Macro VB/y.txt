@@ -1,0 +1,8 @@
+Function Addition(ByVal Valeur1 As Integer, ByVal Valeur2 As Integer) As Integer
+        Dim Resultat As Integer
+        'Addition des deux arguments
+        Resultat = Valeur1 + Valeur2
+
+        'Renvoie le résultat
+        Return Resultat
+End Function

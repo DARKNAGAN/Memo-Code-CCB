@@ -1,0 +1,10 @@
+Sub For_X_to_Next_Ligne()
+Dim FL1 As Worksheet, NoCol As Integer
+Dim NoLig As Long, Var As Variant
+    Set FL1 = Worksheets("Feuil2")
+    NoCol = 1 'lecture de la colonne 1
+    For NoLig = 1 To Split(FL1.UsedRange.Address, "$")(4)
+        Var = FL1.Cells(NoLig, NoCol)
+    Next
+    Set FL1 = NoThing
+End Sub
